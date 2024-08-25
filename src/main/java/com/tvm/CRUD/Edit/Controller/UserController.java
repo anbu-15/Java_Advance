@@ -5,6 +5,7 @@ import com.tvm.CRUD.Edit.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -14,9 +15,19 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping
+    @GetMapping("/{id}")
     public Optional<User> getUserById(@PathVariable Long id) {
         return userService.getUserById(id);
+    }
+
+    @GetMapping("/getall")
+    public List<User> getAllUser() {
+        return userService.getAllUser();
+    }
+
+    @PostMapping("/save")
+    public User saveUser(@RequestBody User user){
+        return userService.saveUser(user);
     }
 
     @DeleteMapping("/delete/{id}")
