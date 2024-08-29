@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('Build Maven'){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/anbu-15/Java_Advance']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/anbu-15/Jenkins_integrated_Docker']])
                 bat 'mvn clean install'
             }
         }
